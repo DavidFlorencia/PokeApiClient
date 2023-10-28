@@ -1,0 +1,116 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    namespace 'com.dflorencia.pokeapiclient'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.dflorencia.pokeapiclient"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        buildConfigField("String","BASE_URL",API_PATH)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    /**
+     * dependencias base
+     */
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+
+    /**
+     * dependencia que facilita la forma en que se vincula un fragment con su view model
+     */
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    /**
+     * dependencias para implementar Navigation
+     */
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    /**
+     * dependencia para consumo de servicios web
+     */
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    /**
+     * dependencia para parseo de respuesta de servicios web
+     */
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    /**
+     * dependencia para inyeccion de dependencias
+     */
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+    /**
+     * dependencia para agregar interceptor a retrofit
+     */
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+
+    /**
+     * dependencias de Glide, para cargar imagenes desde servidor web
+     */
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    /**
+     * deopendencias paginacion
+     */
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+
+    /**
+     * dependencias para test unitarios
+     */
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    testImplementation "com.google.truth:truth:$googleTruthVersion"
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PokeApi Client</string>
+    <string name="loader_network_error">Estado de carga o error</string>
+    <string name="search_hint">Search by name</string>
+    <string name="name_placeholder">Name</string>
+    <string name="pokemon_height">Height:</string>
+    <string name="pokemon_weight">Weight:</string>
+    <string name="pokemon_types">Types:</string>
+    <string name="pokemon_abilities">Abilities:</string>
+    <string name="name_format">%s - %s</string>
+    <string name="height_format">%s m</string>
+    <string name="weight_format">%s kg</string>
+</resources>

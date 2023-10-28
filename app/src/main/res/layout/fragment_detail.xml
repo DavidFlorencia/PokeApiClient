@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.view.DetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_title_size"
+            tools:text="##: Pokemon Name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/default_margin"/>
+
+        <ImageView
+            android:id="@+id/imgSpriteFront"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgSpriteBack"
+            android:layout_margin="@dimen/default_margin"
+            tools:src="@tools:sample/avatars"/>
+
+        <ImageView
+            android:id="@+id/imgSpriteBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            app:layout_constraintStart_toEndOf="@id/imgSpriteFront"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/default_margin"
+            tools:src="@tools:sample/avatars"/>
+
+        <TextView
+            android:id="@+id/lblHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            android:text="@string/pokemon_height"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/imgSpriteFront"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/big_margin"/>
+
+        <TextView
+            android:id="@+id/txtHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            tools:text="decimetros"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/imgSpriteFront"
+            app:layout_constraintStart_toEndOf="@id/lblHeight"
+            android:layout_margin="@dimen/medium_margin"/>
+
+        <TextView
+            android:id="@+id/lblWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            android:text="@string/pokemon_weight"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/lblHeight"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/big_margin"/>
+
+        <TextView
+            android:id="@+id/txtWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            tools:text="hectograms"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/lblHeight"
+            app:layout_constraintStart_toEndOf="@id/lblWeight"
+            android:layout_margin="@dimen/medium_margin"/>
+
+        <TextView
+            android:id="@+id/lblTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            android:text="@string/pokemon_types"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/lblWeight"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/big_margin"/>
+
+        <TextView
+            android:id="@+id/txtTypes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            tools:text="types"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/lblWeight"
+            app:layout_constraintStart_toEndOf="@id/lblTypes"
+            android:layout_margin="@dimen/medium_margin"/>
+
+        <TextView
+            android:id="@+id/lblAbilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            android:text="@string/pokemon_abilities"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/lblTypes"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/medium_margin"
+            android:layout_marginStart="@dimen/big_margin"/>
+
+        <TextView
+            android:id="@+id/txtAbilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_detail_body_size"
+            tools:text="abilities"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/lblTypes"
+            app:layout_constraintStart_toEndOf="@id/lblAbilities"
+            android:layout_margin="@dimen/medium_margin"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/status_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_progress_bar"
+                android:layout_width="@dimen/status_size"
+                android:layout_height="@dimen/status_size"
+                android:src="@drawable/loading_animation"
+                android:contentDescription="@string/loader_network_error"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
